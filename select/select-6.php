@@ -1,18 +1,22 @@
-<a href="index.php">home</a><br>
+<a href="../index.php">home</a><br>
 <?php
 
-require 'conn.php';
+require '../conn.php';
 
-//$sql = "SELECT nome, AVG(anni) AS eta FROM `clienti`";
 
-//$sql = "SELECT COUNT(provincia) AS provincia FROM `clienti`";
 
- $sql = "SELECT id, nome, COUNT(anni) AS eta FROM `clienti`
- GROUP BY anni
- HAVING eta > 1";
 
-//  $sql = "SELECT nome, COUNT(anni) AS anni FROM `clienti`
-//  GROUP BY anni";
+
+// -- WHERE C.id = 8"; 
+ $sql = "SELECT * FROM `clienti` 
+ WHERE RIGHT(`nome`, 1) IN('a','i','e')
+ AND YEAR(data) = '2000'
+ ORDER BY id DESC LIMIT 1";
+// LEFT JOIN `fatture`     AS F ON C.id = F.cliente_id AND F.pagamento_id = 2 AND YEAR(F.data) BETWEEN 1990 AND 2019
+// LEFT JOIN `notecredito` AS N ON C.id = N.cliente_id AND N.pagamento_id = 2 AND YEAR(N.data) BETWEEN 1990 AND 2019
+// LEFT JOIN `parcelle`    AS P ON C.id = P.cliente_id AND P.pagamento_id = 2 AND YEAR(P.data) BETWEEN 1990 AND 2019
+// WHERE C.id = 8"; // AND YEAR(data) BETWEEN 1990 AND 2019";
+
 
 if (!$result = $mysqli->query($sql)) { die('KO'); }
 
@@ -39,7 +43,7 @@ $mysqli->close();
         <p style="line-height:.5"><?= $row['importo']; ?></p>
         <p style="line-height:.5"><?= $row['data']; ?></p>
         <p style="line-height:.5"><?= $row['tipo']; ?></p>
-</div>
+</div> 
 <hr> -->
 <?php /* endforeach; */ ?>
 
@@ -96,7 +100,23 @@ $mysqli->close();
 
 
 
+/*
+$sql = "SELECT *
+FROM utenti
+INNER JOIN citta
+ON utenti.citta_id = citta.id
+WHERE citta.id = 1";
 
+if (!$result = $mysqli->query($sql)) { die('KO'); }
+
+$rows = $result->fetch_all(MYSQLI_ASSOC);
+
+echo '<pre>';print_r($rows);echo '</pre>';
+
+$result->close();
+
+$mysqli->close();
+*/
 /*
 // utenti
 +----+------+

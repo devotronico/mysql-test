@@ -1,7 +1,7 @@
-<a href="index.php">home</a><br>
+<a href="../index.php">home</a><br>
 <?php
 
-require 'conn.php';
+require '../conn.php';
 
 require "vendor/autoload.php";
 

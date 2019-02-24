@@ -1,17 +1,19 @@
-<a href="index.php">home</a><br>
+<a href="../index.php">home</a><br>
 <?php
 
-require 'conn.php';
+require '../conn.php';
 
 
 // FUNZIONA (non cancellare)
 // $sql = "SELECT C.id, F.importo, N.importo, P.importo, F.cliente_id, N.cliente_id, P.cliente_id
-$sql = "SELECT *
-FROM `clienti` AS C
-LEFT JOIN `fatture`     AS F ON C.id = F.cliente_id 
-LEFT JOIN `notecredito` AS N ON C.id = N.cliente_id 
-LEFT JOIN `parcelle`    AS P ON C.id = P.cliente_id 
-WHERE C.id = 8"; 
+$sql = "SELECT P.id, SUM(F.importo) AS `tot`, C.nome,  C.id AS `clienteID`
+FROM `pagamenti` AS P
+LEFT JOIN `fatture` AS F ON P.id = F.pagamento_id 
+LEFT JOIN `clienti` AS C ON F.cliente_id = C.id
+GROUP BY F.pagamento_id";
+// having b.paid < b.amount
+
+// -- WHERE C.id = 8"; 
 // $sql = "SELECT *
 // FROM `clienti` AS C
 // LEFT JOIN `fatture`     AS F ON C.id = F.cliente_id AND F.pagamento_id = 2 AND YEAR(F.data) BETWEEN 1990 AND 2019

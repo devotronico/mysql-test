@@ -1,31 +1,48 @@
-<a href="index.php">home</a><br>
+<a href="../index.php">home</a><br>
 <?php
 
-require 'conn.php';
-$sql = "SELECT * FROM `clienti` WHERE id = 1";
-## FUNCTIONS
-### CONTROL FLOW FUNCTIONS
-#### IF
-// $sql = "SELECT IF(`anni`, `nome`, `provincia` ) AS `result` FROM `clienti` WHERE id = 1";
-#### IFNULL
-// $sql = "SELECT IFNULL(`anni`, `nome` ) AS `result` FROM `clienti` WHERE id = 1";
-#### NULLIF
-// ritorna NULL quando il primo è uguale al secondo arg, altrimenti restituisce il primo arg
-// $sql = "SELECT NULLIF(2,2) AS `result`"; // ritorna NULL
-// $sql = "SELECT NULLIF(2,3) AS `result`"; // ritorna 2
+require '../conn.php';
 
 
-// $sql = "SELECT * FROM `clienti` WHERE RIGHT(`nome`, 2) IN('ta','ti','re')";
+// FUNZIONA (non cancellare)
 
-// $sql = "SELECT LEFT(`nome`, 3) AS `first_3_str` FROM `clienti`";
-// $sql = "SELECT RIGHT(`nome`, 3) AS `last_3_str` FROM `clienti`";
+$sql = "SELECT `nome`, `importo`, `data`, `tipo` FROM (
+        SELECT `cliente_id`, `pagamento_id`, `data`, `importo` FROM `fatture`
+        UNION ALL
+        SELECT `cliente_id`, `pagamento_id`, `data`, `importo` FROM `notecredito`
+        UNION ALL
+        SELECT `cliente_id`, `pagamento_id`, `data`, `importo`  FROM `parcelle`
+      ) AS `temp`
+      JOIN `clienti` ON temp.cliente_id = clienti.id
+      JOIN `pagamenti` ON temp.pagamento_id = pagamenti.id
+      WHERE temp.pagamento_id = 2 AND temp.cliente_id = 8 AND YEAR(temp.data) BETWEEN 1990 AND 2019
+      ORDER BY temp.data DESC";
+//---
+// $sql = "SELECT `nome`, `importo`, `data`, `tipo` FROM (
+//         SELECT `cliente_id`, `pagamento_id`, `data`, `importo` FROM `fatture`
+//         UNION ALL
+//         SELECT `cliente_id`, `pagamento_id`, `data`, `importo` FROM `notecredito`
+//         UNION ALL
+//         SELECT `cliente_id`, `pagamento_id`, `data`, `importo`  FROM `parcelle`
+//       ) AS `temp`
+//       JOIN `clienti` ON temp.cliente_id = clienti.id
+//       JOIN `pagamenti` ON temp.pagamento_id = pagamenti.id
+//       WHERE temp.pagamento_id = 2 AND temp.cliente_id = 8 AND YEAR(temp.data) BETWEEN 1990 AND 2019
+//       ORDER BY temp.data DESC";
+//---
+// FUNZIONA (non cancellare)
+// $sql = "SELECT `nome`, `importo`, `data`, `tipo` FROM (
+//         SELECT `cliente_id`, `pagamento_id`, `data`, `importo` FROM `fatture`
+//         UNION ALL
+//         SELECT `cliente_id`, `pagamento_id`, `data`, `importo` FROM `notecredito`
+//         UNION ALL
+//         SELECT `cliente_id`, `pagamento_id`, `data`, `importo`  FROM `parcelle`
+//       ) AS `temp`
+//       JOIN `clienti` ON temp.cliente_id = clienti.id
+//       JOIN `pagamenti` ON temp.pagamento_id = pagamenti.id
+//       WHERE pagamenti.id = 2 AND clienti.id = 8 AND YEAR(temp.data) BETWEEN 1990 AND 2019
+//       ORDER BY temp.data DESC";
 
-// $sql = "SELECT SUM(anni) AS `sum_anni` FROM `clienti`";
-// $sql = "SELECT AVG(anni) AS `avg_anni` FROM `clienti`";
-// $sql = "SELECT COUNT(*) AS `numeroClienti` FROM `clienti`";
-// $sql = "SELECT COUNT(provincia) AS `num_rows` FROM `clienti`";
-// $sql = "SELECT COUNT(provincia) AS provincia FROM `clienti`";
-// $sql = "SELECT CONCAT(id, nome) AS concatenato FROM `clienti` WHERE id = 1";
 
 
 if (!$result = $mysqli->query($sql)) { die('KO'); }
@@ -37,7 +54,6 @@ echo $row_count;
 
 $status = explode('  ', $mysqli->stat());
 echo '<pre>';print_r($status);echo '</pre>';
-// echo $stat;
 
 echo '<pre>';print_r($rows);echo '</pre>';
 
@@ -53,7 +69,7 @@ $mysqli->close();
         <p style="line-height:.5"><?= $row['importo']; ?></p>
         <p style="line-height:.5"><?= $row['data']; ?></p>
         <p style="line-height:.5"><?= $row['tipo']; ?></p>
-</div>
+</div> 
 <hr> -->
 <?php /* endforeach; */ ?>
 

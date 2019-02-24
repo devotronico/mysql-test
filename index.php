@@ -16,17 +16,17 @@ require "vendor/autoload.php";
     <div class="container" style="padding:100px;width:800px;height:100vh;margin:100px auto;background-color:silver">
         <h1>Faker Data</h1>
         <ul>
-            <li style="margin-bottom:10px;"><a href="crea_fatture.php">crea fatture</a></li>
-            <li style="margin-bottom:10px;"><a href="crea_notecredito.php">crea notecredito</a></li>
-            <li style="margin-bottom:10px;"><a href="crea_parcelle.php">crea parcelle</a></li>
-            <li style="margin-bottom:10px;"><a href="crea_payment.php">crea pagamenti</a></li>
-            <li style="margin-bottom:10px;"><a href="crea_clienti.php">crea clienti</a></li>
-            <li style="margin-bottom:10px;"><a href="select-1.php">select-1</a></li>
-            <li style="margin-bottom:10px;"><a href="select-2.php">select-2</a></li>
-            <li style="margin-bottom:10px;"><a href="select-3.php">select-3</a></li>
-            <li style="margin-bottom:10px;"><a href="select-4.php">select-4</a></li>
-            <li style="margin-bottom:10px;"><a href="select-5.php">select-5</a></li>
-            <li style="margin-bottom:10px;"><a href="select-6.php">select-5</a></li>
+            <li style="margin-bottom:10px;"><a href="create/crea_fatture.php">crea fatture</a></li>
+            <li style="margin-bottom:10px;"><a href="create/crea_notecredito.php">crea notecredito</a></li>
+            <li style="margin-bottom:10px;"><a href="create/crea_parcelle.php">crea parcelle</a></li>
+            <li style="margin-bottom:10px;"><a href="create/crea_payment.php">crea pagamenti</a></li>
+            <li style="margin-bottom:10px;"><a href="create/crea_clienti.php">crea clienti</a></li>
+            <li style="margin-bottom:10px;"><a href="select/select-1.php">select-1</a></li>
+            <li style="margin-bottom:10px;"><a href="select/select-2.php">select-2</a></li>
+            <li style="margin-bottom:10px;"><a href="select/select-3.php">select-3</a></li>
+            <li style="margin-bottom:10px;"><a href="select/select-4.php">select-4</a></li>
+            <li style="margin-bottom:10px;"><a href="select/select-5.php">select-5</a></li>
+            <li style="margin-bottom:10px;"><a href="select/select-6.php">select-6</a></li>
         </ul>
         <?php
 
