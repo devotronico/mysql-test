@@ -5,6 +5,7 @@ require 'conn.php';
 
 
 // FUNZIONA (non cancellare)
+
 $sql = "SELECT `nome`, `importo`, `data`, `tipo` FROM (
         SELECT `cliente_id`, `pagamento_id`, `data`, `importo` FROM `fatture`
         UNION ALL

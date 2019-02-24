@@ -24,10 +24,13 @@ require "vendor/autoload.php";
             <li style="margin-bottom:10px;"><a href="select-1.php">select-1</a></li>
             <li style="margin-bottom:10px;"><a href="select-2.php">select-2</a></li>
             <li style="margin-bottom:10px;"><a href="select-3.php">select-3</a></li>
-            <li style="margin-bottom:10px;"><a href="select-4.php">select-4 (CONCAT)</a></li>
+            <li style="margin-bottom:10px;"><a href="select-4.php">select-4</a></li>
+            <li style="margin-bottom:10px;"><a href="select-5.php">select-5</a></li>
+            <li style="margin-bottom:10px;"><a href="select-6.php">select-5</a></li>
         </ul>
-
         <?php
+
+        // mysql teset
         //$faker = Faker\Factory::create('it_IT'); // create a French faker
         /*
         echo 'nome: ' . $faker->name;

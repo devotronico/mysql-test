@@ -2,30 +2,24 @@
 <?php
 
 require 'conn.php';
-$sql = "SELECT * FROM `clienti` WHERE id = 1";
-## FUNCTIONS
-### CONTROL FLOW FUNCTIONS
-#### IF
-// $sql = "SELECT IF(`anni`, `nome`, `provincia` ) AS `result` FROM `clienti` WHERE id = 1";
-#### IFNULL
-// $sql = "SELECT IFNULL(`anni`, `nome` ) AS `result` FROM `clienti` WHERE id = 1";
-#### NULLIF
-// ritorna NULL quando il primo è uguale al secondo arg, altrimenti restituisce il primo arg
-// $sql = "SELECT NULLIF(2,2) AS `result`"; // ritorna NULL
-// $sql = "SELECT NULLIF(2,3) AS `result`"; // ritorna 2
 
 
-// $sql = "SELECT * FROM `clienti` WHERE RIGHT(`nome`, 2) IN('ta','ti','re')";
+// FUNZIONA (non cancellare)
+// $sql = "SELECT C.id, F.importo, N.importo, P.importo, F.cliente_id, N.cliente_id, P.cliente_id
+$sql = "SELECT P.id, SUM(F.importo) AS `tot`, C.nome,  C.id AS `clienteID`
+FROM `pagamenti` AS P
+LEFT JOIN `fatture` AS F ON P.id = F.pagamento_id 
+LEFT JOIN `clienti` AS C ON F.cliente_id = C.id
+GROUP BY F.pagamento_id";
+// having b.paid < b.amount
 
-// $sql = "SELECT LEFT(`nome`, 3) AS `first_3_str` FROM `clienti`";
-// $sql = "SELECT RIGHT(`nome`, 3) AS `last_3_str` FROM `clienti`";
-
-// $sql = "SELECT SUM(anni) AS `sum_anni` FROM `clienti`";
-// $sql = "SELECT AVG(anni) AS `avg_anni` FROM `clienti`";
-// $sql = "SELECT COUNT(*) AS `numeroClienti` FROM `clienti`";
-// $sql = "SELECT COUNT(provincia) AS `num_rows` FROM `clienti`";
-// $sql = "SELECT COUNT(provincia) AS provincia FROM `clienti`";
-// $sql = "SELECT CONCAT(id, nome) AS concatenato FROM `clienti` WHERE id = 1";
+// -- WHERE C.id = 8"; 
+// $sql = "SELECT *
+// FROM `clienti` AS C
+// LEFT JOIN `fatture`     AS F ON C.id = F.cliente_id AND F.pagamento_id = 2 AND YEAR(F.data) BETWEEN 1990 AND 2019
+// LEFT JOIN `notecredito` AS N ON C.id = N.cliente_id AND N.pagamento_id = 2 AND YEAR(N.data) BETWEEN 1990 AND 2019
+// LEFT JOIN `parcelle`    AS P ON C.id = P.cliente_id AND P.pagamento_id = 2 AND YEAR(P.data) BETWEEN 1990 AND 2019
+// WHERE C.id = 8"; // AND YEAR(data) BETWEEN 1990 AND 2019";
 
 
 if (!$result = $mysqli->query($sql)) { die('KO'); }
@@ -53,7 +47,7 @@ $mysqli->close();
         <p style="line-height:.5"><?= $row['importo']; ?></p>
         <p style="line-height:.5"><?= $row['data']; ?></p>
         <p style="line-height:.5"><?= $row['tipo']; ?></p>
-</div>
+</div> 
 <hr> -->
 <?php /* endforeach; */ ?>
 
