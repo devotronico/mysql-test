@@ -1,0 +1,23 @@
+===Database db_gestionale
+
+== Struttura della tabella clienti
+
+|------
+|Colonna|Tipo|Null|Predefinito
+|------
+|//**id**//|tinyint(3)|No|
+|nome|varchar(100)|No|
+|anni|tinyint(2)|No|
+|provincia|varchar(2)|No|
+== Dump dei dati per la tabella clienti
+
+|1|Giacinto Testa|18|NA
+|2|Dr. Morgana Rossetti|58|TO
+|3|Kristel Fiore|47|MI
+|4|Armando Lombardi|29|BA
+|5|Sig.ra Sibilla Donati|18|SA
+|6|Piersilvio Amato|71|NA
+|7|Dr. Maika Milani|44|RM
+|8|Dr. Kociss Marino|53|FI
+|9|Sandro Pellegrini|49|PA
+|10|Ing. Fortunata Mariani|88|VE

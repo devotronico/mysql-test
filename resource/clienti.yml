@@ -1,0 +1,54 @@
+%YAML 1.1
+---
+# db_gestionale.clienti
+-
+  id: 1
+  nome: "Giacinto Testa"
+  anni: 18
+  provincia: "NA"
+-
+  id: 2
+  nome: "Dr. Morgana Rossetti"
+  anni: 58
+  provincia: "TO"
+-
+  id: 3
+  nome: "Kristel Fiore"
+  anni: 47
+  provincia: "MI"
+-
+  id: 4
+  nome: "Armando Lombardi"
+  anni: 29
+  provincia: "BA"
+-
+  id: 5
+  nome: "Sig.ra Sibilla Donati"
+  anni: 18
+  provincia: "SA"
+-
+  id: 6
+  nome: "Piersilvio Amato"
+  anni: 71
+  provincia: "NA"
+-
+  id: 7
+  nome: "Dr. Maika Milani"
+  anni: 44
+  provincia: "RM"
+-
+  id: 8
+  nome: "Dr. Kociss Marino"
+  anni: 53
+  provincia: "FI"
+-
+  id: 9
+  nome: "Sandro Pellegrini"
+  anni: 49
+  provincia: "PA"
+-
+  id: 10
+  nome: "Ing. Fortunata Mariani"
+  anni: 88
+  provincia: "VE"
+...
