@@ -154,55 +154,78 @@ require "vendor/autoload.php";
 */
 
 /*
+|campo | tipo | valore |
+|---| ---|| ------||
 ## 01. areageografica
-- id: 1
-- paese: Italia
-- codice_iso: IT
+|id: 1
+|paese: Italia
+|codice_iso: IT
 ---
 ## 02. assegni
-- id:
-- numero:
-- carnet:
-- importo:
-- dataEmissione:
-- beneficiario:
-- dataIncasso:
-- stato:
+|id:
+|numero:
+|carnet:
+|importo:
+|dataEmissione:
+|beneficiario:
+|dataIncasso:
+|stato:
 ---
 ## 03. brand
-- id:       1
-- brand:    ALTUN
--
+|id:       1
+|brand:    ALTUN
 ---
 ## 04. buste_paga
--
--
--
+|id:               1758
+|dipendente:       34
+|dataElaborazione: 2019-04-01
+|mese:             3
+|anno:             2019
+|compentenze:      1896.12
+|trattenute:       377.17
+|netta:            1518.95
 ---
 ## 05. carnet
--
--
--
+|id:
+|numero:
+|dataRitiro
+|fondo:
 ---
 ## 06. classeimballaggio
--
--
--
+|id:       7
+|classe:   ETICHETTA
+|formula:  v*b
 ---
 ## 07. classeprodotto
--
--
--
+|id:       1
+|classe:   LEGUMI
 ---
 ## 08. clienti
--
--
--
+|id | INT(11) | 374 |
+|ragione_sociale | TEXT | MASINO CASILLI GBR |
+|partita_iva | TEXT | DE 261938277 |
+|protFatturazione | TEXT | T |
+|codice_fiscale | TEXT | 97181460581 |
+|email | TEXT |  rottamigalasso@legalmail.it |
+|telefono | TEXT | +966126061160 |
+|fax | TEXT | 08118857189 |
+|indirizzo | TEXT | PIAZZA IV NOVEMBRE , 4 |20124 MILANO (MI) |IT |
+|area_geografica | TEXT | 51 |
+|altriIndirizzi | TEXT | PORTO DI SALERNO |JEDDAH  |
+|pec | VARCHAR(255) | rottamigalasso@legalmail.it |
+|codice_identificativo_sdi | VARCHAR(7) | SUBM70N |
+|indirizzo_via | VARCHAR(255) | PIAZZA IV NOVEMBRE |
+|indirizzo_ncivico | VARCHAR(100) | 80 |
+|indirizzo_cap | VARCHAR(100) | 80022 |
+|indirizzo_comune | VARCHAR(255) | MILANO |
+|indirizzo_provincia | VARCHAR(100) | MI |
+|indirizzo_nazione | VARCHAR(2) | IT |
 ---
 ## 09. codiciiva
--
--
--
+|id | INT(11) | 1 | 23 |
+|codice | TEXT | 4% | Documenti elettronici |non soggette |
+|aliquota | INT(11) | aliquota | 0 |
+|sigla | TEXT | 4 | N2 |
 ---
 ## 10. contratti
 -
@@ -214,126 +237,259 @@ require "vendor/autoload.php";
 -
 -
 ---
-## 12.
+## 12. ddout_row
 -
 -
 -
 ---
-## 13.
+## 13. ddtin
 -
 -
 -
 ---
-## 14.
+## 14. ddtout
 -
 -
 -
 ---
-##  15.
+##  15. ddt_casuali
 -
 -
 -
 ---
-## 16.
+## 16. depositi
 -
 ---
-## 17.
+## 17. depositi_movimenti
 -
 ---
-## 18.
+## 18. dich_intenti
 -
 ---
-## 19.
+## 19. dich_intenti_ric
+|id | INT(11) | 1 |
+|numero | INT(11) | 34 |
+|anno | INT(11) | 2017 |
+|cliente | INT(11) | 212 |
+|importo | FLOAT | 100000 |
+|da | DATE | 2017-01-02 |
+---
+## 20. dipendenti
+|id | INT(11) | 256 |
+|nomeCognome | TEXT | PERITO SALVATORE LUCA |
+|codiceFiscale | TEXT | PRTSVT92H04F912G |
+|mansione | TEXT | ope |
+---
+## 21. dipendenti_certificati
 -
 ---
-## 20.
+## 22. dipendenti_contratti
 -
 ---
-## 21.
+## 23. distrimballaggi
 -
 ---
-## 22.
+## 24. divise
+|id | MEDIUMINT(4) | 1 |
+|codice | VARCHAR(3) | EUR |
+|valuta | VARCHAR(50) | euro |
+|numero | MEDIUMINT(3) | 978 |
+---
+## 25. eftin_import
+|id | INT(11) | 711 |
+|unzip_dir | VARCHAR(255) | 20190522_0752_03252_B2B_FATTURE_PASSIVE_IT00183180652 |
+|file_sbustato | VARCHAR(100) | 20190522_IT13378520152_0003695419.xml |
+|data | DATETIME | 2019-05-20 00:00:00 |
+|tipo_documento | VARCHAR(255) | FATTURA |
+|allegati | TEXT | 3695419\IT04839740489_BVA6H_MT_001.xml |
+|importazione_db | TINYINT(1) | 1 |
+---
+## 26. eftout_ricevute
 -
 ---
-## 23.
+## 27 entrate
+| id                | INT(11) | 4877       |
+| rowordineout      | INT(11) | 5714       |
+| rowordinideposito | INT(11) | 0          |
+| dataIngresso      | DATE    | 2019-05-21 |
+| ddt               | INT(11) | 4877       |
+| qt                | INT(11) | 270000     |
+---
+## 28. fondi
+|id | INT(11) | 2 |
+|descrizione | TEXT | UNICREDIT EURO |
+|istituto | TEXT | UNICREDIT |
+|indirizzo | TEXT | PAGANI (SA) Agenzia 0633 Via De Gasperi, 435/437 84016 |PAGANI(SA) |
+|tipo | TEXT | ccbanca |
+|iban | TEXT | IT44Z 33333 22222 111111 000000 | 
+|bic_swift | TEXT | UNCRITM1234 |
+|saldo0 | DOUBLE | 10000.1234 |
+|colore | TEXT | #FFFF80 |
+---
+## 29. fornitori
+|id: 676
+|ragione_sociale: F. DIVELLA S.P.A.
+|partita_iva: 00257660720
+|codice_fiscale: 00257660720
+|email: divella@divella.it;
+|telefono: 080 4779111
+|fax: 0804762056
+|indirizzo: LARGO  DOMENICO DIVELLA, 1 |70018 RUTIGLIANO ((BA)) |IT
+|area_geografica: 1
+|altrinIndirizzi: 
+|pec: f.divella@legalmail.it; fornitori@pec.divella.it
+|codice_identificativo_sdi:MZO2A0U
+|indirizzo_via: LARGO  DOMENICO DIVELLA
+|indirizzo_civico: 1
+|indirizzo_cap: 70018
+|indirizzo_comune: RUTIGLIANO
+|indirizzo_provincia: (BA)
+|indirizzo_nazione: IT
+---
+## 30. ftin
+|id | INT(11) | 5914 |
+|codice | TEXT | 710/19/E |
+|protocollo | TEXT | 7607/A |
+|fornitore | INT(11) | 340 |
+|cliente | INT(11) | 0 |
+|dataEmissione | DATE | 2019-05-21 |
+|dataScadenza | DATE | 2019-06-20 |
+|dataRegistrazione | DATE | 2019-05-22 |
+|imponibile | DOUBLE | 545 |
+|importoIva | FLOAT | 10.37 |
+|totale | DOUBLE | 652.03 |
+|ordine | TEXT | (0) |
+|stato | TEXT | ricevuta |
+|pagamento | TEXT | 120 |
+|valuta | TEXT | euro |
+|dicIntenti | INT(11) | 0 |
+|cambio | FLOAT | 1 |
+|impoEuro | DOUBLE | 545.45 |
+|totaleEuro | DOUBLE | 456.78 |
+|rifFtOut | TEXT | (0) |
+|is_elettronica | TINYINT(1) | 1 |
+|pec | VARCHAR(255) | NULL |
+|codice_identificativo | VARCHAR(7) | NULL |
+|file | VARCHAR(255) | 20190521_IT02249120102_0003680854.xml |
+|allegati | TEXT | 3680854\IT02249120102_8KU.xml.PDF;3680854\IT03466010232_0NYbH_MT_001.xml |
+|validata | TINYINT(1) | 0 |
+---
+## 31. ftin_copia
 -
 ---
-## 24.
+## 32. ftin_online
 -
 ---
-## 25.
+## 33. ftin_row
+|id | INT(11) | 19670 |
+|fattura | INT(11) | 5914 |
+|data | DATE | 2019-05-21 |
+|costo | INT(11) | 0|
+|descrizione | TEXT | vs fattura 630/19 dtd.03/05/19 |
+|qt | INT(11) | 1 |
+|pzu | FLOAT | 14.9 |
+|pzt | DOUBLE | 15.8
+|vat | INT(11) | 23 |
+|tot | DOUBLE | 510 |
+---
+## 34. ftout
+|id | INT(11) | 7355
+|codice | TEXT | 7777
+|dataEnissione | DATE | 2019-05-28 |
+|dataScadenza | DATE | 2019-05-28
+|cliente | INT(11) | 12 |
+|fornitore | INT(11) | 0 |
+|indirizzo | TEXT | VIA BATTIMELLI , 25 |80139 SANT`ANTONIO ABATE (NA) |IT |
+|stato | TEXT | emessa |
+|ordine | TEXT | (6587) |
+|imponibile | DOUBLE | 802745.86 |
+|valuta | TEXT | euro |
+|importoIva | DOUBLE | 32109.83 |
+|totaleFattura | DOUBLE | 834855.69 |
+|pagamento | TEXT | 1 |
+|incoterms | TEXT | FOB NAPLES
+|stornata | INT(11) |
+|tassoCambio | DOUBLE |
+|imponibileEuro | DOUBLE |
+|totaleFatturaEuro | DOUBLE |
+|fondo | INT(11) |
+|note | TEXT |
+|gw | TEXT |
+|nw | TEXT |
+|cbm | TEXT |
+|dicIntenti | INT(11) |
+|is_elettronica | TINYINT(1) |
+|pec | VARCHAR(255) |
+|codice_destinatario | VARCHAR(7) |
+|file | VARCHAR(255) |
+|file_zip | VARCHAR(255) |
+|fe_progressivo | VARCHAR(10) |
+|fe_stato | VARCHAR(100) |
+---
+## 35. ftout_row
+| id          | INT(11) | 21974        |
+| fattura     | INT(11) | 7365         |
+| prodotto    | INT(11) | 112          |
+| imballaggio | INT(11) | 215          |
+| um          | TEXT    | 1            |
+| qt          | DOUBLE  | 1013.568     |
+| pzu         | DOUBLE  | 100          |
+| discount    | DOUBLE  | 2            |
+| pzt         | DOUBLE  | 802745.856   |
+| vat         | TEXT    | 10           |
+| tot         | DOUBLE  | 834855.69024 |
+| gw          | FLOAT   | 4            |
+| nw          | FLOAT   | 5            |
+| cbm         | FLOAT   | 6            |
+| taricCode   | TEXT    | hs-code      |
+| lotti       | TEXT    | note-1       |
+| ddt         | TEXT    | (18);(19)    |
+
+---
+## 36. imballaggi
 -
 ---
-## 26.
+## 37. incassi
 -
 ---
-## 27
+## 38. incassi_dati
 -
 ---
-## 28.
+## 39. incassi_nc
 -
 ---
-## 29.
+## 40. incassi_row
 -
 ---
-## 30.
+## 41. lavorazioni
 -
 ---
-## 31.
+## 42. login
 -
 ---
-## 32.
+## 43. lottipf
 -
 ---
-## 33.
+## 44. mercetichettata
 -
 ---
-## 34.
+## 45. messaggi
 -
 ---
-## 35.
+## 46. metodipagamento
+|id | INT(11) | 1 |
+|metodo | TEXT | 120 DAYS FROM B/L DATE |
+|scadenze | TEXT | niente |
+|classe | TEXT | ALTRO |
+|codice_fe | VARCHAR(4) | NULL |
+---
+## 47. movimballaggi
 -
 ---
-## 36.
+## 48. movimbscheda
 -
 ---
-## 37.
--
----
-## 38.
--
----
-## 39.
--
----
-## 40.
--
----
-## 41.
--
----
-## 42.
--
----
-## 43.
--
----
-## 44.
--
----
-## 45.
--
----
-## 46.
--
----
-## 47.
--
----
-## 48.
--
----
-## 49.
+## 49. movimentifinanziari
 -
 ---
 ## 50.
@@ -381,8 +537,22 @@ require "vendor/autoload.php";
 ## 64.
 -
 ---
-## 65.
--
+## 65. prodottifiniti
+|id                | INT(11) |  |
+|codice            | TEXT |  |
+|codiceNumerico    | TEXT |  |
+|unit_misura       | TEXT |  |
+|vassoi            | INT(11) |  |
+|etichette         | INT(11) |  |
+|formato           | TEXT |  |
+|cliente           | INT(11) |  |
+|prodotto          | TEXT |  |
+|materiali         | TEXT |  |
+|inglese | TEXT |  |
+|francese | TEXT |  |
+|plastica | INT(11) |  |
+|qtPlastica | DOUBLE |  |
+
 ---
 ## 66.
 -
